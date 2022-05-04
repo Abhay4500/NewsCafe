@@ -1,0 +1,45 @@
+{
+	"status": "ok",
+	"totalResults": 3,
+	"articles": [
+		{
+			"source": {
+				"id": "usa-today",
+				"name": "USA Today"
+			},
+			"author": "John Bacon and Charles Ventura, USA TODAY",
+			"title": "Russia denies its flagship cruiser sinks in Black Sea and warns Sweden, Finland on NATO: Live Ukraine updates - USA TODAY",
+			"description": "Russia nixes report that a flagship cruiser sank after an explosion that the Ukraine military said was the result of a missile strike. Latest news.",
+			"url": "https://www.usatoday.com/story/news/politics/2022/04/14/ukraine-russia-invasion-live-updates/7314494001/",
+			"urlToImage": "https://www.gannett-cdn.com/presto/2022/04/14/USAT/95c6044e-3d3d-4efc-96dc-0706a147f7ea-AFP_AFP_32888T8.jpg?auto=webp&crop=8255,4644,x0,y419&format=pjpg&width=1200",
+			"publishedAt": "2022-04-14T14:26:15Z",
+			"content": "Russia denied a report Thursday that the flagship of its Black Sea fleet sank following a fiery explosion that the Ukraine military said was the result of a missile strike.\r\nOdesa Gov. Maksym Marchen… [+4940 chars]"
+		},
+		{
+			"source": {
+				"id": null,
+				"name": "New York Times"
+			},
+			"author": "Michael Schwirtz, Dan Bilefsky",
+			"title": "Live News: Latest Russia-Ukraine Updates and Moskva - The New York Times",
+			"description": "Ukraine said it had struck the flagship of Russia’s Black Sea fleet with missiles, while Russia claimed that the damage was caused by a fire. As Moscow moves to escalate its offensive in the east and south, President Volodymyr Zelensky of Ukraine praised the …",
+			"url": "https://www.nytimes.com/live/2022/04/14/world/ukraine-russia-war-news",
+			"urlToImage": "https://static01.nyt.com/images/2022/04/14/world/14ukraine-blog-promo-1045am-est/merlin_205405308_44317e16-231f-485f-8c41-0e2ffa3a75e1-facebookJumbo.jpg",
+			"publishedAt": "2022-04-14T14:03:18Z",
+			"content": "In the days after the Russian withdrawal from the outskirts of Kyiv, a driver named Oleg Naumenko opened the trunk of an abandoned car and it exploded, killing him instantly.The car had been booby-tr… [+5268 chars]"
+		},
+		{
+			"source": {
+				"id": "fox-news",
+				"name": "Fox News"
+			},
+			"author": "Tyler O'Neil",
+			"title": "Ukraine war is a 'perfect storm,' threatening food, energy, and debt crises across the globe: UN report - Fox News",
+			"description": "Russia's invasion of Ukraine appears to have set off a \"perfect storm,\" sparking multiple crises across the globe in the areas of food, energy, and debt, with devastating impacts for developing countries, the United Nations warned in a report Wednesday.",
+			"url": "https://www.foxnews.com/world/ukraine-war-is-a-perfect-storm-threatening-food-energy-and-debt-crises-across-the-globe-un-report",
+			"urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2021/12/Putin-3.jpg",
+			"publishedAt": "2022-04-14T07:13:17Z",
+			"content": "Russia's invasion of Ukraine appears to have set off a \"perfect storm,\" sparking multiple crises across the globe in the areas of food, energy, and debt, with devastating impacts for developing count… [+2965 chars]"
+		}
+	]
+}

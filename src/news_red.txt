@@ -1,0 +1,136 @@
+import React, { Component } from 'react'
+import NewsItem from './NewsItem'
+import { Spinner } from './Spinner';
+import PropTypes from 'prop-types'
+
+
+class News extends Component {
+	static defaultProps = {
+		country: 'in',
+		pageSize: 8
+	}
+
+	static propTypes = {
+		country: PropTypes.string,
+		pageSize: PropTypes.number,
+	}
+
+	constructor() {
+		super();
+		this.state = {
+			articles: [],
+			loading: false,
+			page: 1
+		}
+
+	}
+
+	async componentDidMount() {
+		let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=75f4c236021e419891e46b284f2aca3b&page=1&pageSize=${this.props.pageSize}`;
+		this.setState({ loading: true });
+		let data = await fetch(url);
+		let parsedData = await data.json();
+		this.setState({
+			articles: parsedData.articles,
+			totalResults: parsedData.totalResults,
+			loading: false
+		})
+
+	}
+
+	handlePrevClick = async () => {
+		if (this.state.page - 1 > Math.ceil(this.state.totalResults / this.props.pageSize)) {
+
+		}
+		else {
+			let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=75f4c236021e419891e46b284f2aca3b&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+			this.setState({ loading: true });
+			let data = await fetch(url);
+			let parsedData = await data.json();
+			this.setState({
+				page: this.state.page - 1,
+				articles: parsedData.articles,
+				loading: false
+			})
+		}
+	}
+	handleNextClick = async () => {
+		//Read this syntax and spinner syntax and syntax above this.state.articles.map(element)
+		if (!(this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize))) {
+
+			let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=75f4c236021e419891e46b284f2aca3b&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+			this.setState({ loading: true });
+			let data = await fetch(url);
+			let parsedData = await data.json();
+			this.setState({
+				page: this.state.page + 1,
+				articles: parsedData.articles,
+				loading: false
+			})
+		}
+
+	}
+	render() {
+		return (
+			<div className="container my-3">
+				<h1 className='text-center' style={{ margin: '35px 0px' }}>NewsCafe Top Headlines</h1>
+				{this.state.loading && <Spinner />}
+				<div className="row">
+					{!this.state.loading && this.state.articles.map((element) => {
+						return <div className="col-md-4" key={element.url}>
+							<NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage} newsUrl={element.url} />
+						</div>
+					})}
+				</div>
+				<div className="container d-flex justify-content-between">
+					<button disabled={this.state.page - 1 > Math.ceil(this.state.totalResults / this.props.pageSize)} type="button" className="btn btn-info" onClick={this.handlePrevClick}>&larr; Previous</button>
+					<button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)} type="button" className="btn btn-info" onClick={this.handleNextClick} >Next &rarr;</button>
+				</div>
+			</div>
+		)
+	}
+}
+
+export default News
+
+
+
+
+
+
+
+/////app.jsonimport './App.css';
+
+import React, { Component } from 'react'
+import NavBar from './components/NavBar';
+import News from './components/News';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+        <Router>
+          <NavBar />
+          <News pageSize={5} country="in" category="science" />
+          <Switch>
+            <Route exact path="/"><News key="general" pageSize={5} country="in" category="general" /></Route>
+            <Route exact path="/business"><News key="business" pageSize={5} country="in" category="business" /></Route>
+            <Route exact path="/entertainment"><News key="entertainment" pageSize={5} country="in" category="entertainment" /></Route>
+            <Route exact path="/general"><News key="general" pageSize={5} country="in" category="general" /></Route>
+            <Route exact path="/health"><News key="health" pageSize={5} country="in" category="health" /></Route>
+            <Route exact path="/science"><News key="science" pageSize={5} country="in" category="science" /></Route>
+            <Route exact path="/sports"><News key="sports" pageSize={5} country="in" category="sports" /></Route>
+            <Route exact path="/technology"><News key="technology" pageSize={5} country="in" category="technology" /></Route>
+
+          </Switch>
+        </Router>
+      </div>
+    )
+  }
+}
+
